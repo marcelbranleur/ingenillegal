@@ -123,9 +123,9 @@ function group_posts() {
  * Get the local menu if in the local group context
  */
 function group_menu() {
-  $parent_post_id = wp_get_post_parent_id();
+  $parent_post_id = wp_get_post_parent_id(get_the_ID());
   $headline_title = '';
-  $headline_utl = '';
+  $headline_url = '';
 
   // If on a page with local group template
   if(get_page_template_slug(get_the_ID()) == 'page-group.php') {
