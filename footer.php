@@ -13,23 +13,51 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
+	<footer>
 		<div class="container">
-
 			<div class="row">
 				<div class="col">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/img/IMaI_Ikon_fot_sprak_.svg" alt="footer-icon-sprak" class="img-fluid">
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col">
 					<?php wp_nav_menu(array('theme_location' => 'languages-menu')); ?>
 				</div>
 			</div>
-			
+		</div>
 	</footer>
+
 </div><!-- #page -->
+
+<nav id="menu" aria-hidden="true" aria-labelledby="menu-toggle" role="navigation">
+
+	<div class="nav-mobile">
+		<a href="<?php echo esc_url(home_url('/')); ?>" class="logo">
+			<img src="<?php echo get_template_directory_uri(); ?>/src/img/IMaI_Logo_vit_.svg" alt="logo" class="img-fluid logo">
+		</a>
+		<a id="close"><i class="fas fa-times"></i></a>
+	</div>
+
+	<div class="nav-menu">
+		<div class="left">
+			<?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
+		</div>
+		<div class="right">
+			<?php wp_nav_menu(array('theme_location' => 'groups-menu')); ?>
+		</div>
+	</div>
+</nav>
+
+<div id="lang" class="lang-overlay" aria-hidden="true" aria-labelledby="lang-toggle" role="navigation">
+	<div class="nav-mobile">
+		<a href="<?php echo esc_url(home_url('/')); ?>" class="logo">
+			<img src="<?php echo get_template_directory_uri(); ?>/src/img/IMaI_Logo_vit_.svg" alt="logo" class="img-fluid logo">
+		</a>
+		<a id="close-lang"><i class="fas fa-times"></i></a>
+	</div>
+		<?php wp_nav_menu(array('theme_location' => 'languages-menu')); ?>
+</div>
 
 <?php wp_footer(); ?>
 

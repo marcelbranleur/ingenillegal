@@ -9,30 +9,19 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+	ingenillegal_posted_on();
+	ingenillegal_groups();
+?>
 
-	<div class="entry-header">
+<?php the_title( '<h1>', '</h1>' ); ?>
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+<?php ingenillegal_event_info(); ?>
 
-		<div class="entry-meta">
-			<?php
-				ingenillegal_posted_on();
-				ingenillegal_groups();
-				ingenillegal_event_info();
-			?>
-		</div>
+<?php ingenillegal_post_thumbnail(); ?>
 
-	</div>
+<?php the_content(); ?>
 
-	<?php ingenillegal_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php the_content(); ?>
-	</div>
-
-	<div class="entry-footer">
-		<?php ingenillegal_entry_footer(); ?>
-	</div>
-
-</article>
+<div class="entry-footer">
+	<?php ingenillegal_entry_footer(); ?>
+</div>

@@ -9,20 +9,16 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<section class="post-content">
 
-	<div class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</div>
+<?php the_title( '<h1>', '</h1>' ); ?>
 
-	<?php ingenillegal_post_thumbnail(); ?>
+<?php ingenillegal_post_thumbnail(); ?>
 
-	<div class="entry-content">
-		<?php the_content(); ?>
-	</div>
+<?php the_content(); ?>
 
-	<div class="entry-footer">
-		<?php ingenillegal_entry_footer(); ?>
-	</div>
+<div class="entry-footer">
+	<?php ingenillegal_entry_footer(); ?>
+</div>
 
-</article>
+</section>

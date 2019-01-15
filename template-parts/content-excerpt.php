@@ -9,24 +9,28 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="row">
+	<div class="col">
 
-	<div class="entry-header">
 
-		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+<div id="post-<?php the_ID(); ?>" class="post" <?php // post_class(); ?>>
 
-		<div class="entry-meta">
-			<?php
-				ingenillegal_posted_on();
-				ingenillegal_groups();
-				ingenillegal_event_info();
-			?>
-		</div>
-
+	<div class="post-info">
+		<?php
+			ingenillegal_posted_on();
+			ingenillegal_groups();
+		?>
 	</div>
 
-	<div class="entry-content">
+	<?php the_title( '<div class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></div>' ); ?>
+
+	<?php ingenillegal_event_info(); ?>
+
+	<div class="post-excerpt">
 		<?php the_excerpt(); ?>
 	</div>
 
-</article>
+</div>
+
+</div>
+</div>

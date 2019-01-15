@@ -19,7 +19,7 @@ if ( ! function_exists( 'ingenillegal_posted_on' ) ) :
 			esc_html( get_the_date() )
 		);
 
-		echo '<span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
+		echo '<div class="date">' . $time_string . '</div>'; // WPCS: XSS OK.
 
 	}
 endif;
@@ -35,7 +35,7 @@ if( !function_exists('ingenillegal_event_info')) :
 		$field_city = get_field('city');
 
 		if($field_date) {
-			print '<div class="event">';
+			print '<div class="event-info">';
 			print '<span class="event-date">'. $field_date .'</span>';
 			if($field_place) {
 				print '<span class="event-place">'. $field_place .'</span>';
@@ -43,6 +43,7 @@ if( !function_exists('ingenillegal_event_info')) :
 			if($field_city) {
 				print '<span class="event-city">'. $field_city .'</span>';
 			}
+			print '</div>';
 		}
 
 	}
@@ -58,6 +59,7 @@ if( !function_exists('ingenillegal_groups')) :
 			$groups = get_field('groups');
 			if($groups) {
 				$last_key = end(array_keys($groups));
+				print '<div class="author">';
 				foreach($groups as $key => $group) {
 					$name = $group->post_title;
 					$id = $group->ID;
@@ -68,6 +70,7 @@ if( !function_exists('ingenillegal_groups')) :
 						print '<a href="'. $url .'">'. $name .'</a>, ';
 					}
 				}
+				print '</div>';
 			}
 		}
 

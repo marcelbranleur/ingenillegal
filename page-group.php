@@ -12,32 +12,39 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-			<div class="container">
+<main id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="container">
+		<div class="row">
 
-		<?php print group_menu(); ?>
+			<?php
+				// Print the group menu
+			 	print group_menu();
+			?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+			<div class="col-lg-8 group-content">
 
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-		<?php print group_posts(); ?>
+				<?php
+					// Start the loop
+					while ( have_posts() ) : the_post();
+						get_template_part( 'template-parts/content', 'page' );
+					endwhile;
+				?>
 
 			</div>
-		</main><!-- #main -->
-	</div><!-- #primary -->
+
+		</div>
+	</div>
+
+	<section class="blog">
+	<div class="container">
+	<?php
+		// Print the group posts
+		print group_posts();
+	?>
+	</div>
+</section>
+
+</main>
 
 <?php
-get_sidebar();
 get_footer();

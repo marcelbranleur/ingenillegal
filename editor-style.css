@@ -1,0 +1,4 @@
+/* Change width of Gutenberg editor */
+.wp-block {
+  max-width: 745px;
+}

@@ -10,29 +10,21 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-<!--		<main id="main" class="site-main">-->
-	<div class="header">
-			<div class="container">
-				<div class="header-wrapper">
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-	</div>
+		<div class="container">
+			<div class="header-wrapper">
+				<?php print '<h1>' . get_the_title() . '</h1>'; ?>
+				<?php
+					// Print the intro block
+					$blocks = parse_blocks($post->post_content);
+					foreach($blocks as $block) {
+						if($block[blockName] == 'ingenillegal-blocks/intro') {
+							print $block[innerHTML];
+						}
+					}
+				?>
+			</div>
 		</div>
-</div>
-<!--		</main><!-- #main -->
+	</header>
 
 	<main>
 		<section class="lokalgrupper">
@@ -62,12 +54,11 @@ get_header();
 
 		<section class="blog">
 			<div class="container">
-				<?php print latest_posts(); ?>
+						<?php print latest_posts(); ?>
 			</div>
 		</section>
 	</main>
 
-	</div><!-- #primary -->
 
 <?php
 get_footer();
