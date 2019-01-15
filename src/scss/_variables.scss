@@ -1,6 +1,7 @@
 //colors:
 $primary: #46ADD6;
 $primary-dark: #0D83A8;
+$primary-darker: #006A8B;
 $white: #FFFFFF;
 $bg-color:#F6F6F4;
 $font-color: #333333;
@@ -12,3 +13,9 @@ $footer-links-color: #DDDDDD;
 $primary-font: 'Roboto', sans-serif;
 $secondary-font: 'Roboto Mono', monospace;
 
+//breakpoints
+// @include media-breakpoint-up(xs) { ... }
+// @include media-breakpoint-up(sm) { ... }
+// @include media-breakpoint-up(md) { ... }
+// @include media-breakpoint-up(lg) { ... }
+// @include media-breakpoint-up(xl) { ... }
