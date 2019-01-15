@@ -34,7 +34,7 @@
 
 	<div class="nav-mobile">
 		<a href="<?php echo esc_url(home_url('/')); ?>" class="logo">
-			<?php echo file_get_contents( get_stylesheet_directory_uri() . '/dist/img/IMaI_Logo_.svg' ); ?>
+			<?php //echo file_get_contents( get_stylesheet_directory_uri() . 'dist/img/IMaI_Logo_.svg' ); ?>
 		</a>
 		<a id="close"><i class="fas fa-times"></i></a>
 	</div>
@@ -52,7 +52,7 @@
 <div id="lang" class="lang-overlay" aria-hidden="true" aria-labelledby="lang-toggle" role="navigation">
 	<div class="nav-mobile">
 		<a href="<?php echo esc_url(home_url('/')); ?>" class="logo">
-			<?php echo file_get_contents( get_stylesheet_directory_uri() . '/dist/img/IMaI_Logo_.svg' ); ?>
+			<?php //echo file_get_contents( get_stylesheet_directory_uri() . 'dist/img/IMaI_Logo_.svg' ); ?>
 		</a>
 		<a id="close-lang"><i class="fas fa-times"></i></a>
 	</div>
