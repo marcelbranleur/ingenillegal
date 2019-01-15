@@ -48,17 +48,17 @@
 
 	<div class="navigation">
 		<a href="<?php echo esc_url(home_url('/')); ?>" class="logo">
-			<?php // echo file_get_contents( get_stylesheet_directory_uri() . '/dist/img/IMaI_Logo_.svg' ); ?>
+			<?php echo file_get_contents(get_stylesheet_directory_uri() . '/dist/img/IMaI_Logo_.svg'); ?>
 		</a>
 
 		<div class="menu-wrapper">
 			<a href="#" class="menu" id="menu-toggle" arial-label="Menu" aria-expanded="false" aria-controls="menu">
 				Meny
-				<?php // echo file_get_contents(get_stylesheet_directory_uri() . '/dist/img/IMaI_Ikon_meny_.svg'); ?>
+				<?php echo file_get_contents(get_stylesheet_directory_uri() . '/dist/img/IMaI_Ikon_meny_.svg'); ?>
 			</a>
 			<a href="#" class="language" id="lang-toggle" aria-label="Lang" aria-expanded="false" aria-controls="lang">
 				Språk
-				<?php // echo file_get_contents(get_stylesheet_directory_uri() .'/dist/img/IMaI_Ikon_Sprak_.svg'); ?>
+				<?php echo file_get_contents(get_stylesheet_directory_uri() .'/dist/img/IMaI_Ikon_Sprak_.svg'); ?>
 			</a>
 		</div>
 	</div>
