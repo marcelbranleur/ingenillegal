@@ -29,7 +29,7 @@ get_header();
 	<main>
 		<div class="localgroups-wrapper">
 			<div class="localgroups front">
-				<img src="<?php echo get_template_directory_uri() ?>/src/img/IMaI_Illustration_Pekar.png" alt="illustration" class="img-fluid" />
+				<img src="<?php echo get_template_directory_uri() ?>/dist/img/IMaI_Illustration_Pekar.png" alt="illustration" class="img-fluid" />
 				<div class="inner">
 					<h2>Lokalgrupper</h2>
 					<div class="groups">

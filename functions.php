@@ -95,11 +95,11 @@ function ingenillegal_scripts() {
 	// Add the style in theme root, with normalizing css
 	wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
 
-	// Add style from src folder
-	wp_enqueue_style( 'ingenillegal-style', get_stylesheet_directory_uri() . '/src/css/style.css');
+	// Add style from dist folder
+	wp_enqueue_style( 'ingenillegal-style', get_stylesheet_directory_uri() . '/dist/css/style.css');
 
 	// Load theme script with jquery as dependency
-	wp_enqueue_script( 'theme-script', get_template_directory_uri() . '/src/js/script.js', array('jquery'), null, true);
+	wp_enqueue_script( 'theme-script', get_template_directory_uri() . '/dist/js/script.js', array('jquery'), null, true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
