@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function($) {
     $('#menu-toggle, #menu > ul > li > a').click(function(e) {
         var $toggle = $(this);
         var $menu = $('#' + $(this).attr('aria-controls'));
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 });
 
-$(document).ready(function() {
+jQuery(document).ready(function($) {
     $('#lang-toggle, #lang > ul > li > a').click(function(e) {
         var $toggleLang = $(this);
         var $lang = $('#' + $(this).attr('aria-controls'));
@@ -63,4 +63,3 @@ $(document).ready(function() {
 });
 
 // lang
-

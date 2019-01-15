@@ -1,0 +1,57 @@
+.coverimage-header {
+    // Background image is set through Wordpress
+    // background-image: url('/img/IMaI_banner_Engagera-dig.jpg');
+    background-position: center;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+
+    .menu-wrapper a {
+        color: #fff;
+    }
+
+
+    .header-wrapper {
+        margin: 1rem auto 0 auto;
+        padding-bottom: 3rem;
+
+        @include media-breakpoint-up(md) {
+            padding-bottom: 5rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding-bottom: 10rem;
+        }
+    }
+
+    .navigation {
+
+        a {
+            // It's the .cls-1 class inside the svg that has a color fill, so
+            // we must target this to change the svg color
+            svg {
+                .cls-1 {
+                  fill: white;
+                }
+            }
+        }
+        .menu-wrapper {
+            a {
+                svg {
+                    .cls-1 {
+                      fill: white;
+                    }
+                }
+
+                &:hover {
+                    svg {
+                      .cls-1 {
+                        fill: $primary;
+                      }
+                    }
+                }
+            }
+        }
+    }
+}

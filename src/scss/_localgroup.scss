@@ -2,13 +2,20 @@
 .group {
     margin: 1rem auto;
 
-    h2 {
+    h2 a {
         font-family: $secondary-font;
         font-weight: 500;
         font-size: 1.5rem;
         // width: 70%;
         line-height: 1rem;
         margin-bottom: 1rem;
+        color: $font-color;
+        text-decoration: none;
+
+        &:hover, &:active, &:focus {
+          text-decoration: underline;
+          color: $font-color;
+        }
 
         @include media-breakpoint-up(md) {
            font-size: 2rem;
@@ -66,23 +73,27 @@
         li {
             margin-bottom: 0.5rem;
 
-            a,
-            a:link,
-            a:visited {
+            a {
                 font-size: 1rem;
                 color: $font-color;
                 font-family: $secondary-font;
                 font-weight: 500;
                 line-height: 2.1rem;
                 text-transform: uppercase;
+                text-decoration: none;
 
                 @include media-breakpoint-up(lg) {
                     font-size: 1.2rem;
                 }
 
+                &:hover, &:active, &:focus {
+                  text-decoration: underline;
+                  color: $font-color;
+                }
+
             }
 
-            a:active {
+            a.active {
                 color: $primary;
                 text-decoration: underline;
             }
