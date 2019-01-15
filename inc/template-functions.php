@@ -31,10 +31,10 @@ function ingenillegal_post_classes($classes) {
 	// Group context
 	$parent_post_id = wp_get_post_parent_id(get_the_ID());
 	if(get_page_template_slug(get_the_ID()) == 'page-group.php') {
-		$classes[] = 'group-parent';
+		$classes[] = 'group-context group-parent';
 	}
   if($parent_post_id && get_page_template_slug($parent_post_id) == 'page-group.php') {
-		$classes[] = 'group-child';
+		$classes[] = 'group-context group-child';
 	}
 
 	return $classes;
@@ -222,13 +222,18 @@ function group_menu() {
   $output = '';
 
   $pages = new WP_Query( $args );
-  if ( $pages->have_posts() ) {
-    $output .= '<div class="col-lg-4 group"><h2><a href="'. $headline_url .'">'. $headline_title .'</a></h2><ul>';
+	$currentpageID = get_the_ID();
+  //if ( $pages->have_posts() ) {
+    $output .= '<h2><a href="'. $headline_url .'">'. $headline_title .'</a></h2><ul>';
     while ( $pages->have_posts() ) : $pages->the_post();
+			if($currentpageID == get_the_ID()) {
+      $output .= '<li class="menu-item"><a class="active" href="'. get_the_permalink() .'" title="'. get_the_title() .'">'. get_the_title() .'</a></li>';
+		} else {
       $output .= '<li class="menu-item"><a href="'. get_the_permalink() .'" title="'. get_the_title() .'">'. get_the_title() .'</a></li>';
+		}
     endwhile;
-    $output .= '</ul></div>';
-  }
+    $output .= '</ul>';
+  //}
   wp_reset_postdata();
 
   return $output;
@@ -308,6 +313,11 @@ function ingenillegal_allowed_block_types( $allowed_block_types, $post ) {
 	);
 }
 add_filter( 'allowed_block_types', 'ingenillegal_allowed_block_types', 10, 2 );
+
+/**
+ * Only allow specific sizes in the Gutenberg image block
+ */
+
 
 /**
  * Only allow specific colors in the Gutenberg color picker.

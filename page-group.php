@@ -16,33 +16,26 @@ get_header();
 	<div class="container">
 		<div class="row">
 
-			<?php
-				// Print the group menu
-			 	print group_menu();
-			?>
+			<div class="col-lg-4 group">
+				<?php print group_menu(); ?>
+			</div>
 
 			<div class="col-lg-8 group-content">
-
 				<?php
-					// Start the loop
 					while ( have_posts() ) : the_post();
 						get_template_part( 'template-parts/content', 'page' );
 					endwhile;
 				?>
-
 			</div>
 
 		</div>
 	</div>
 
-	<section class="blog">
-	<div class="container">
-	<?php
-		// Print the group posts
-		print group_posts();
-	?>
-	</div>
-</section>
+	<!--<section class="blog">
+		<div class="container">
+			<?php // print group_posts(); ?>
+		</div>
+	</section>-->
 
 </main>
 

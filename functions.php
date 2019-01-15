@@ -108,6 +108,15 @@ function ingenillegal_scripts() {
 add_action( 'wp_enqueue_scripts', 'ingenillegal_scripts' );
 
 /**
+* Enqueue editor styles for Gutenberg
+*/
+function ingenillegal_editor_styles() {
+    //wp_enqueue_style( 'theme-slug-editor-style', get_template_directory_uri() . '/assets/stylesheets/editor-style.css' );
+		wp_enqueue_style( 'ingenillegal-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:300,400,500,700,900&amp;subset=latin-ext', false );
+}
+add_action( 'enqueue_block_editor_assets', 'ingenillegal_editor_styles' );
+
+/**
  * Functions which enhance the theme by hooking into WordPress.
  * All filters and custom functions for the theme is in this file
  */

@@ -9,6 +9,8 @@
 
 ?>
 
+<div class="post-content">
+
 <?php
 	ingenillegal_posted_on();
 	ingenillegal_groups();
@@ -24,4 +26,6 @@
 
 <div class="entry-footer">
 	<?php ingenillegal_entry_footer(); ?>
+</div>
+
 </div>

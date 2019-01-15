@@ -27,34 +27,29 @@ get_header();
 	</header>
 
 	<main>
-		<section class="lokalgrupper">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<img src="<?php echo get_template_directory_uri(); ?>/src/img/IMaI_Illustration_Pekar.png" alt="illustation" class="img-fluid">
-					</div>
-					<div class="col-lg-6">
-						<h2>Lokalgrupper</h2>
-						<div class="buttons">
-							<?php
-							$groups = get_pages(array(
-								'meta_key' => '_wp_page_template',
-								'meta_value' => 'page-group.php',
-								'compare' => '='
-							));
-
-							foreach($groups as $group) {
-								print '<a href="'. get_the_permalink($group->ID) .'" class="button">'. $group->post_title .'</a>';
-							} ?>
-						</div>
+		<div class="localgroups-wrapper">
+			<div class="localgroups front">
+				<img src="<?php echo get_template_directory_uri() ?>/src/img/IMaI_Illustration_Pekar.png" alt="illustration" class="img-fluid" />
+				<div class="inner">
+					<h2>Lokalgrupper</h2>
+					<div class="groups">
+						<?php
+						$groups = get_pages(array(
+							'meta_key' => '_wp_page_template',
+							'meta_value' => 'page-group.php',
+							'compare' => '='
+						));
+						foreach($groups as $group) {
+							print '<a href="'. get_the_permalink($group->ID) .'">'. $group->post_title .'</a>';
+						} ?>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 
 		<section class="blog">
 			<div class="container">
-						<?php print latest_posts(); ?>
+				<?php print latest_posts(); ?>
 			</div>
 		</section>
 	</main>

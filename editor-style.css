@@ -1,4 +1,16 @@
 /* Change width of Gutenberg editor */
 .wp-block {
   max-width: 745px;
+  font-family: 'Roboto', sans-serif;
+  color: #333333;
+}
+
+/* Title */
+.editor-post-title__block .editor-post-title__input {
+  font-family: 'Roboto', sans-serif;
+  color: #333333;
+}
+
+h2, h3, h4, h5, h6 {
+  margin: 2em 0 1em 0;
 }
