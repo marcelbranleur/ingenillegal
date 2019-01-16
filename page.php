@@ -38,7 +38,7 @@ get_header();
 
 			<?php
 				// Print two columns and group menu if on group sub-page
-				if(wp_get_post_parent_id() && get_page_template_slug(wp_get_post_parent_id()) == 'page-group.php') {
+				if(wp_get_post_parent_id(get_the_ID()) && get_page_template_slug(wp_get_post_parent_id()) == 'page-group.php') {
 					echo '<div class="col-lg-4 group">'. group_menu() .'</div>';
 					echo '<div class="col-lg-8 group-content">';
 				} else {
