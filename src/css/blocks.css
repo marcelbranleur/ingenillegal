@@ -1,0 +1,118 @@
+.localgroups {
+	margin: 6rem 0 2rem;
+	padding-bottom: 2rem;
+}
+.localgroups h2 {
+	text-align: center;
+	margin: 1.5rem 0 1rem;
+	font-weight: 500 !important;
+	font-family: "Roboto Mono", monospace !important;
+	font-size: 1.25rem !important;
+	text-transform: uppercase;
+}
+.localgroups img {
+	margin-top: -4rem;
+}
+.localgroups .groups a {
+	margin: 0 auto 0.4em auto;
+	background-color: #46ADD6;
+	color: #ffffff;
+	text-align: center;
+	padding: 0.8rem 1rem;
+	text-decoration: none;
+	display: block;
+	max-width: 250px;
+	font-weight: 500;
+	font-family: "Roboto Mono", monospace;
+}
+.localgroups .groups a:hover,
+.localgroups .groups a:active,
+.localgroups .groups a:focus {
+	background-color: #006A8B;
+	color: #ffffff;
+}
+
+@media(min-width: 600px) {
+	.localgroups {
+		display: flex;
+		align-items: flex-start;
+		margin: 6rem 0 2rem;
+	}
+	.localgroups img {
+		width: 55%;
+		margin-top: -2rem;
+	}
+	.localgroups .inner {
+		width: 45%;
+	}
+	.localgroups h2 {
+		text-align: left;
+		margin: 3rem 0 1rem 0;
+	}
+	.localgroups .groups {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.localgroups .groups a {
+		flex-basis: 49.4%;
+		max-width: none;
+		padding: 0.5rem 0;
+		margin: 0 0 0.4em 0;
+	}
+}
+@media(min-width: 900px) {
+	.localgroups img {
+		margin-top: -4rem;
+	}
+	.localgroups .inner {
+		margin-top: 1rem;
+	}
+	.localgroups .groups a {
+		padding: 0.8em 1rem;
+	}
+	.localgroups {
+		margin-left: -100px;
+		margin-right: -100px;
+	}
+}
+
+/* Front page */
+.localgroups-wrapper {
+  background-color: #46ADD6;
+	padding: 0 1em;
+}
+.localgroups-wrapper > .localgroups {
+	max-width: 1010px;
+  margin: 0 auto;
+}
+.localgroups-wrapper > .localgroups h2 {
+	color: #ffffff;
+}
+.localgroups-wrapper > .localgroups .groups a {
+	background-color: #0D83A8;
+}
+.localgroups-wrapper > .localgroups .groups a:hover,
+.localgroups-wrapper > .localgroups .groups a:active,
+.localgroups-wrapper > .localgroups .groups a:focus {
+	background-color: #006A8B;
+}
+
+
+main .post-content .intro {
+	font-family: "Roboto Mono", monospace;
+	font-weight: 400;
+	font-size: 1rem;
+	margin: 1rem 0;
+}
+
+@media(min-width: 768px) {
+	main .post-content .intro {
+		font-size: 1.3rem;
+	}
+}
+@media(min-width: 992px) {
+	main .post-content .intro {
+		font-size: 1.6rem;
+	}
+}
