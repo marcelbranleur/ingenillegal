@@ -48,17 +48,26 @@
 
 	<div class="navigation">
 		<a href="<?php echo esc_url(home_url('/')); ?>" class="logo">
-			<?php echo file_get_contents(get_stylesheet_directory_uri() . '/dist/img/IMaI_Logo_.svg'); ?>
+			<?php
+				$logoSvg = 'wp-content/themes/'. get_stylesheet() .'/dist/img/IMaI_Logo_.svg';
+				if(file_exists($logoSvg)) { echo file_get_contents($logoSvg); }
+			?>
 		</a>
 
 		<div class="menu-wrapper">
 			<a href="#" class="menu" id="menu-toggle" arial-label="Menu" aria-expanded="false" aria-controls="menu">
 				Meny
-				<?php echo file_get_contents(get_stylesheet_directory_uri() . '/dist/img/IMaI_Ikon_meny_.svg'); ?>
+				<?php
+					$menuSvg = 'wp-content/themes/'. get_stylesheet() .'/dist/img/IMaI_Ikon_meny_.svg';
+					if(file_exists($menuSvg)) { echo file_get_contents($menuSvg); }
+				?>
 			</a>
 			<a href="#" class="language" id="lang-toggle" aria-label="Lang" aria-expanded="false" aria-controls="lang">
 				Språk
-				<?php echo file_get_contents(get_stylesheet_directory_uri() .'/dist/img/IMaI_Ikon_Sprak_.svg'); ?>
+				<?php
+					$langSvg = 'wp-content/themes/'. get_stylesheet() .'/dist/img/IMaI_Ikon_Sprak_.svg';
+					if(file_exists($langSvg)) { echo file_get_contents($langSvg); }
+				?>
 			</a>
 		</div>
 	</div>
