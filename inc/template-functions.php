@@ -196,8 +196,8 @@ function group_menu() {
       'orderby'        => 'menu_order'
     );
 
-    $headline_title =  get_the_title();
-    $headline_url = get_the_permalink();
+    $headline_title =  get_the_title(get_the_ID());
+    $headline_url = get_the_permalink(get_the_ID());
 
   }
 
