@@ -21,8 +21,8 @@ get_header();
 					// Print the intro block
 					$blocks = parse_blocks($post->post_content);
 					foreach($blocks as $block) {
-						if($block[blockName] == 'ingenillegal-blocks/intro') {
-							print $block[innerHTML];
+						if($block['blockName'] == 'ingenillegal-blocks/intro') {
+							print $block['innerHTML'];
 						}
 					}
 				?>
