@@ -38,13 +38,37 @@ get_header();
 
 			<?php
 				// Print two columns and group menu if on group sub-page
-				if(wp_get_post_parent_id(get_the_ID()) && get_page_template_slug(wp_get_post_parent_id(get_the_ID())) == 'page-group.php') {
-					echo '<div class="col-lg-4 group">'. group_menu() .'</div>';
+				$parent_id = wp_get_post_parent_id(get_the_ID());
+				$parent_template = get_page_template_slug($parent_id);
+
+				if($parent_id && $parent_template == 'page-group.php') {
+
+					// Print the sidebar
+					echo '<div class="col-lg-4 group">';
+					echo '<h2><a href="'. get_the_permalink($parent_id) .'">'. get_the_title($parent_id) .'</a></h2><ul>';
+
+					// Print the custom social media fields
+					if(function_exists('CFS')) {
+						$fields = CFS()->get( 'social_media', $parent_id );
+						print '<div>';
+						foreach ( $fields as $field ) {
+							echo $field['url'];
+						}
+						print '</div>';
+					}
+
+					// Print the menu
+					echo group_menu();
+					echo '</div>';
+
+					// Print the content
 					echo '<div class="col-lg-8 group-content">';
+
 				} else {
 					echo '<div class="col">';
 				}
 			?>
+
 
 				<?php
 					while ( have_posts() ) : the_post();

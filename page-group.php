@@ -17,6 +17,18 @@ get_header();
 		<div class="row">
 
 			<div class="col-lg-4 group">
+
+				<?php print '<h2><a href="'. get_the_permalink() .'">'. get_the_title() .'</a></h2>'; ?>
+
+				<?php if (function_exists('CFS')) {
+					$fields = CFS()->get( 'social_media' );
+					print '<div>';
+					foreach ( $fields as $field ) {
+    				echo $field['url'];
+					}
+					print '</div>';
+				} ?>
+
 				<?php print group_menu(); ?>
 			</div>
 

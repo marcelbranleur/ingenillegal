@@ -224,7 +224,8 @@ function group_menu() {
   $pages = new WP_Query( $args );
 	$currentpageID = get_the_ID();
   //if ( $pages->have_posts() ) {
-    $output .= '<h2><a href="'. $headline_url .'">'. $headline_title .'</a></h2><ul>';
+    //$output .= '<h2><a href="'. $headline_url .'">'. $headline_title .'</a></h2>';
+		$output .= '<ul>';
     while ( $pages->have_posts() ) : $pages->the_post();
 			if($currentpageID == get_the_ID()) {
       $output .= '<li class="menu-item"><a class="active" href="'. get_the_permalink() .'" title="'. get_the_title() .'">'. get_the_title() .'</a></li>';
@@ -310,6 +311,7 @@ function ingenillegal_allowed_block_types( $allowed_block_types, $post ) {
 		'core-embed/wordpress-tv',
 		'ingenillegal-blocks/intro',
 		'ingenillegal-blocks/groups',
+		'ingenillegal-blocks/socialmedia',
 	);
 }
 add_filter( 'allowed_block_types', 'ingenillegal_allowed_block_types', 10, 2 );
