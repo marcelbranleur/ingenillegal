@@ -142,7 +142,7 @@ main {
         b, strong {
           font-weight: 700;
         }
-        
+
     }
 
     a:link,
@@ -237,6 +237,19 @@ main {
         }
     }
 }
+
+// Add support for rtl languages
+main.post-182,
+main.post-186,
+main.post-184 {
+  h1, h2, h3, h4, ul, ol, p {
+    text-align: right;
+  }
+}
+.rtl {
+  text-align: right;
+}
+
 
 .material {
     // width: 70%;
