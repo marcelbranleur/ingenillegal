@@ -30,17 +30,15 @@ get_header();
 			<div class="localgroups front">
 				<img src="<?php echo get_template_directory_uri() ?>/dist/img/IMaI_Illustration_Pekar.png" alt="illustration" class="img-fluid" />
 				<div class="inner">
-					<div class="groups">
-						<?php
-						$groups = get_pages(array(
-							'meta_key' => '_wp_page_template',
-							'meta_value' => 'page-group.php',
-							'compare' => '='
-						));
-						foreach($groups as $group) {
-							print '<a href="'. get_the_permalink($group->ID) .'">'. $group->post_title .'</a>';
-						} ?>
-					</div>
+					<?php
+					$groups = get_pages(array(
+						'meta_key' => '_wp_page_template',
+						'meta_value' => 'page-group.php',
+						'compare' => '='
+					));
+					foreach($groups as $group) {
+						print '<a href="'. get_the_permalink($group->ID) .'">'. $group->post_title .'</a>';
+					} ?>
 				</div>
 			</div>
 		</div>
