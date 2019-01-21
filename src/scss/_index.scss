@@ -434,6 +434,17 @@ footer {
             }
         }
     }
+
+    // Add a login link
+    .login {
+      color: #9a9a9a;
+      font-family: $secondary-font;
+      font-weight: 400;
+      display: inline-block;
+      font-size: 0.8rem;
+      margin-top: 2rem;
+
+    }
 }
 
 nav {

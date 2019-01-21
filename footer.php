@@ -26,6 +26,7 @@
 				</div>
 			</div>
 		</div>
+		<a class="login" href="/wp-admin">Logga in</a>
 	</footer>
 
 </div><!-- #page -->
