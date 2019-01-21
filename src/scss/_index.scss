@@ -315,11 +315,36 @@ main {
     }
 }
 
-.more {
+// Added a link to all news on front page
+.all {
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.6rem;
 
-    a {
-        &:link,
-        &:visited {
+    @include media-breakpoint-up(md) {
+        font-size: 0.8rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: 0.9rem;
+    }
+}
+
+// Using this plugin: https://wordpress.org/plugins/ajax-load-more/
+// Not easy to customize the html of the button, so changed the styling instead
+.alm-btn-wrap {
+//.more {
+    text-align: center;
+
+    button {
+//    a {
+//        &:link,
+//        &:visited {
                 margin-top: 4rem;
                 background-color: #F6F6F4;
                 text-transform: uppercase;
@@ -331,12 +356,14 @@ main {
                 font-size: 0.8rem;
                 font-family: "Roboto", sans-serif;
                 letter-spacing: 0.15rem;
-        }
+                cursor: pointer;
+//        }
 
         &:hover,
-        &:active {
+        &:focus {
             border: 3px solid $primary;
-                background-color: #F6F6F4;
+            background-color: #F6F6F4;
+            color: $primary;
         }
     }
 }

@@ -18,25 +18,16 @@ get_header();
 					<h1>Nyheter</h1>
 				</div>
 			</div>
-
-			<?php
-			if ( have_posts() ) :
-				while ( have_posts() ) : the_post();
-					get_template_part( 'template-parts/content', 'excerpt' );
-				endwhile;
-			else :
-				get_template_part( 'template-parts/content', 'none' );
-			endif;
-		?>
-
-		<div class="row text-center">
-			<div class="col more">
-				<a href="#" class="btn">Fler nyheter</a>
-			</div>
+			<?php echo do_shortcode('[
+				ajax_load_more
+				posts_per_page="3"
+				scroll="false"
+				post_type="post"
+				button_label="Fler nyheter"
+				button_loading_label="Laddar"
+			]'); ?>
 		</div>
-
-		</div>
-	</div>
+	</div>>
 </main>
 
 <?php

@@ -50,6 +50,7 @@ get_header();
 		<section class="blog">
 			<div class="container">
 				<?php print latest_posts(); ?>
+				<a href="/nyheter" class="all">Se fler nyheter</a>
 			</div>
 		</section>
 	</main>
