@@ -13,8 +13,6 @@
 
 <?php the_title( '<h1>', '</h1>' ); ?>
 
-<?php ingenillegal_post_thumbnail(); ?>
-
 <?php the_content(); ?>
 
 <div class="entry-footer">

@@ -12,7 +12,6 @@
 <section class="post-content">
 
 	<?php
-		// Print all blocks except the intro block which is printed in header
 		$blocks = parse_blocks(get_the_content());
 		foreach( $blocks as $block ) {
 			if($block[blockName] != 'ingenillegal-blocks/intro') {

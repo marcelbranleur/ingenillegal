@@ -6,19 +6,6 @@
  */
 
 /**
- * Adds custom classes to the array of body classes.
- */
-function ingenillegal_body_classes( $classes ) {
-	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
-	}
-
-	return $classes;
-}
-add_filter( 'body_class', 'ingenillegal_body_classes' );
-
-/**
  * Adds custom classes to the array of post classes
  */
 function ingenillegal_post_classes($classes) {
@@ -41,17 +28,6 @@ function ingenillegal_post_classes($classes) {
 }
 add_filter('post_class','ingenillegal_post_classes');
 
-
-/**
- * Add a pingback url auto-discovery header for single posts, pages, or attachments.
- */
-function ingenillegal_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
-	}
-}
-add_action( 'wp_head', 'ingenillegal_pingback_header' );
-
 /**
  * Change the length of excerpts
  */
@@ -67,7 +43,6 @@ function ingenillegal_excerpt_more( $more ) {
     return '...';
 }
 add_filter('excerpt_more', 'ingenillegal_excerpt_more');
-
 
 /**
  * Filter for ACF. Display only pages with local groups template in Group selection list
@@ -100,79 +75,25 @@ add_filter( 'block_categories', function( $categories, $post ) {
   );
 }, 10, 2 );
 
-
 /**
- * Get the latest posts for the front page
+ * Redirect from category, tag, date and author archives
  */
-function latest_posts() {
-	$today = date('Ymd');
-  $args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-		'meta_query' => array(
-			'relation'		=> 'or',
-			array(
-				'key' 	=> 'date',
-				'compare'   => 'NOT EXISTS'
-			),
-			array(
-				'key'		=> 'date',
-				'compare'	=> '<=',
-				'value'		=> $today,
-			)
-		),
-  );
-  $posts = new WP_Query( $args );
-
-  $output = '';
-  if ( $posts->have_posts() ) {
-    while ( $posts->have_posts() ) : $posts->the_post();
-      $output .= get_template_part( 'template-parts/content', 'excerpt' );
-    endwhile;
+function ingenillegal_redirect_archives(){
+  if( is_category() || is_tag() || is_date() || is_author() ) {
+    global $wp_query;
+    $wp_query->set_404();
   }
-  wp_reset_postdata();
-
-  return $output;
 }
-
-/**
- * Get the local posts for the local group start page
- */
-function group_posts() {
-  $args = array(
-    'post_type' => 'post',
-    'meta_query' => array(
-      array(
-        'key' => 'groups',
-        'value' => '"' . get_the_ID() . '"',
-        'compare' => 'LIKE'
-      )
-    )
-  );
-  $posts = new WP_Query( $args );
-
-  $output = '';
-  if ( $posts->have_posts() ) {
-    $output .= '<section class="blog"><div class="container">';
-    while ( $posts->have_posts() ) : $posts->the_post();
-      get_template_part( 'template-parts/content', 'excerpt' );
-    endwhile;
-    $output .= '<div></section>';
-  }
-  wp_reset_postdata();
-  return $output;
- }
+add_action('template_redirect', 'ingenillegal_redirect_archives');
 
 /**
  * Check if we are on local group context
  */
 function group_context() {
 	$parent_post_id = wp_get_post_parent_id(get_the_ID());
-	// Return true if we are on a page with group template
 	if(get_page_template_slug(get_the_ID()) == 'page-group.php') {
 		return true;
 	}
-	// Return true if we are on a page with a parent with group template
   if($parent_post_id && get_page_template_slug($parent_post_id) == 'page-group.php') {
 		return true;
 	}
@@ -182,7 +103,7 @@ function group_context() {
 /**
  * Check if we are on a post type page with thumbnail image
  */
-function hero_image() {
+function cover_image() {
 	if(get_post_type() == 'page' && has_post_thumbnail()) {
 		return true;
 	}
@@ -209,7 +130,6 @@ function group_menu() {
 
     $headline_title =  get_the_title();
     $headline_url = get_the_permalink();
-
   }
 
   // If we are on a local sub page
@@ -234,19 +154,18 @@ function group_menu() {
 
   $pages = new WP_Query( $args );
 	$currentpageID = get_the_ID();
-  //if ( $pages->have_posts() ) {
-    //$output .= '<h2><a href="'. $headline_url .'">'. $headline_title .'</a></h2>';
-		$output .= '<ul>';
-    while ( $pages->have_posts() ) : $pages->the_post();
-			if($currentpageID == get_the_ID()) {
-      $output .= '<li class="menu-item"><a class="active" href="'. get_the_permalink() .'" title="'. get_the_title() .'">'. get_the_title() .'</a></li>';
+
+	$output .= '<ul>';
+  while ( $pages->have_posts() ) : $pages->the_post();
+		if($currentpageID == get_the_ID()) {
+    	$output .= '<li class="menu-item"><a class="active" href="'. get_the_permalink() .'" title="'. get_the_title() .'">'. get_the_title() .'</a></li>';
 		} else {
       $output .= '<li class="menu-item"><a href="'. get_the_permalink() .'" title="'. get_the_title() .'">'. get_the_title() .'</a></li>';
 		}
-    endwhile;
-    $output .= '</ul>';
-  //}
-  wp_reset_postdata();
+  endwhile;
+  $output .= '</ul>';
+
+	wp_reset_postdata();
 
   return $output;
 }
@@ -322,15 +241,9 @@ function ingenillegal_allowed_block_types( $allowed_block_types, $post ) {
 		'core-embed/wordpress-tv',
 		'ingenillegal-blocks/intro',
 		'ingenillegal-blocks/groups',
-		'ingenillegal-blocks/socialmedia',
 	);
 }
 add_filter( 'allowed_block_types', 'ingenillegal_allowed_block_types', 10, 2 );
-
-/**
- * Only allow specific sizes in the Gutenberg image block
- */
-
 
 /**
  * Only allow specific colors in the Gutenberg color picker.
@@ -360,9 +273,8 @@ add_theme_support('disable-custom-font-sizes');
 function page_block_template() {
     $post_type_object = get_post_type_object( 'page' );
     $post_type_object->template = array(
-				array('ingenillegal-blocks/intro'),
+			array('ingenillegal-blocks/intro'),
     );
-    //$post_type_object->template_lock = 'all';
 }
 add_action( 'init', 'page_block_template' );
 
@@ -373,7 +285,6 @@ function ingenillegal_init() {
  	remove_post_type_support( 'post', 'thumbnail' );
 	unregister_taxonomy_for_object_type('post_tag','post');
 	unregister_taxonomy_for_object_type('category','post');
-
 }
 add_action( 'init', 'ingenillegal_init' );
 
@@ -382,7 +293,7 @@ add_action( 'init', 'ingenillegal_init' );
  * https://github.com/WordPress/gutenberg/issues/9089
  * http://woocommerce.wp-a2z.org/oik_api/wp_dropdown_pages/
  */
-function my_show_all_parents( $args ) {
+function ingenillegal_restrict_parents( $args ) {
 	$args['show_option_none'] = 'Välj en lokalgrupp';
 	$args1 = array(
 		'post_type' => array('page'),
@@ -397,5 +308,5 @@ function my_show_all_parents( $args ) {
 	$args['include'] = $include;
 	return $args;
 }
-add_filter( 'page_attributes_dropdown_pages_args', 'my_show_all_parents' );
-add_filter( 'quick_edit_dropdown_pages_args', 'my_show_all_parents' );
+add_filter( 'page_attributes_dropdown_pages_args', 'ingenillegal_restrict' );
+add_filter( 'quick_edit_dropdown_pages_args', 'ingenillegal_restrict' );

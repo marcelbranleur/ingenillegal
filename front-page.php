@@ -2,19 +2,17 @@
 /**
  * The template for displaying the front page
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package ingenillegal
  */
 
 get_header();
 ?>
 
+		<!-- Header -->
 		<div class="container">
 			<div class="header-wrapper">
 				<?php print '<h1>' . get_the_title() . '</h1>'; ?>
 				<?php
-					// Print the intro block
 					$blocks = parse_blocks($post->post_content);
 					foreach($blocks as $block) {
 						if($block['blockName'] == 'ingenillegal-blocks/intro') {
@@ -26,12 +24,12 @@ get_header();
 		</div>
 	</header>
 
+	<!-- Localgroups -->
 	<main>
 		<div class="localgroups-wrapper">
 			<div class="localgroups front">
 				<img src="<?php echo get_template_directory_uri() ?>/dist/img/IMaI_Illustration_Pekar.png" alt="illustration" class="img-fluid" />
 				<div class="inner">
-					<h2>Lokalgrupper</h2>
 					<div class="groups">
 						<?php
 						$groups = get_pages(array(
@@ -47,53 +45,79 @@ get_header();
 			</div>
 		</div>
 
-	<section class="blog">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<h2>På gång</h2>
-				</div>
-			</div>
-
-<?php
+		<!-- Calendar -->
+		<?php
 		$today = date('Ymd');
-
 		$args = array(
 			'post_type' => 'post',
     	'meta_query' => array(
 				array(
-	        'key'		=> 'date',
+	        'key' => 'date',
 	        'compare'	=> '>=',
-	        'value'		=> $today,
+	        'value' => $today,
 	    	),
     	),
-	    'order'          => 'ASC',
-	    'orderby'        => 'meta_value_num',
-			'meta_key'			 => 'date',
+	    'order' => 'ASC',
+	    'orderby' => 'meta_value_num',
+			'meta_key' => 'date',
 	  );
 	  $posts = new WP_Query( $args );
 
-	  if ( $posts->have_posts() ) {
-	    while ( $posts->have_posts() ) : $posts->the_post();
-	      print get_template_part( 'template-parts/content', 'excerpt-event' );
-	    endwhile;
-	  }
+	  if ( $posts->have_posts() ) { ?>
+
+			<section class="blog">
+				<div class="container">
+
+					<div class="row">
+						<div class="col">
+							<h2>På gång</h2>
+						</div>
+					</div>
+
+	    		<?php
+						while ( $posts->have_posts() ) : $posts->the_post();
+	      			print get_template_part( 'template-parts/content', 'excerpt-event' );
+	    			endwhile;
+					?>
+
+				</div>
+			</section>
+
+		<?php }
 	  wp_reset_postdata();
-
 		?>
-	</div>
-</section>
 
-
+		<!-- Latest news -->
 		<section class="blog">
 			<div class="container">
-				<div class="row">
-					<div class="col">
-						<h2>Nyheter</h2>
-					</div>
-				</div>
-				<?php print latest_posts(); ?>
+
+				<?php
+				$today = date('Ymd');
+				$args = array(
+				  'post_type' => 'post',
+				  'posts_per_page' => 3,
+					'meta_query' => array(
+						'relation' => 'or',
+						array(
+							'key' => 'date',
+							'compare' => 'NOT EXISTS'
+						),
+						array(
+							'key' => 'date',
+							'compare'	=> '<=',
+							'value' => $today,
+						)
+					),
+				 );
+				 $posts = new WP_Query( $args );
+
+				 while ( $posts->have_posts() ) : $posts->the_post();
+				 	$output .= get_template_part( 'template-parts/content', 'excerpt' );
+				 endwhile;
+				 wp_reset_postdata();
+				 ?>
 				<a href="/nyheter" class="all">Fler nyheter</a>
+
 			</div>
 		</section>
 	</main>

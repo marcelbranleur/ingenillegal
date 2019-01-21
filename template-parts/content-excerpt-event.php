@@ -12,7 +12,7 @@
 <div class="row">
 	<div class="col">
 
-		<div id="post-<?php the_ID(); ?>" class="post" <?php // post_class(); ?>>
+		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<?php the_title( '<div class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></div>' ); ?>
 

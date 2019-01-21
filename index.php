@@ -1,8 +1,6 @@
 <?php
 /**
- * The main template file
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * The template file for displaying the news page
  *
  * @package ingenillegal
  */

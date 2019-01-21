@@ -20,8 +20,6 @@
 
 <?php ingenillegal_event_info(); ?>
 
-<?php ingenillegal_post_thumbnail(); ?>
-
 <?php the_content(); ?>
 
 <div class="entry-footer">

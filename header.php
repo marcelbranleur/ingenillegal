@@ -38,7 +38,7 @@
 
 		<?php
 		// Add a header wrapper if on a page with featured image
-		if(hero_image()) {
+		if(cover_image()) {
 			print '<header class="coverimage-header" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(' . get_stylesheet_directory_uri() .'/dist/img/IMaI_banner_grafik.png), url(' . get_the_post_thumbnail_url() . ');">';
 		}
 		if(is_front_page()) {
