@@ -214,6 +214,15 @@ main {
             text-align: center;
         }
 
+        h2 {
+          margin: 0 3rem;
+          font-size: 1rem;
+          font-weight: 900;
+          text-align: center;
+          text-decoration: underline;
+          text-transform: uppercase;
+        }
+
         .post {
             border-bottom: 2px dotted $border-color;
             text-align: center;

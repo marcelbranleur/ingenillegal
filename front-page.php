@@ -47,10 +47,53 @@ get_header();
 			</div>
 		</div>
 
+	<section class="blog">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>På gång</h2>
+				</div>
+			</div>
+
+<?php
+		$today = date('Ymd');
+
+		$args = array(
+			'post_type' => 'post',
+    	'meta_query' => array(
+				array(
+	        'key'		=> 'date',
+	        'compare'	=> '>=',
+	        'value'		=> $today,
+	    	),
+    	),
+	    'order'          => 'ASC',
+	    'orderby'        => 'meta_value_num',
+			'meta_key'			 => 'date',
+	  );
+	  $posts = new WP_Query( $args );
+
+	  if ( $posts->have_posts() ) {
+	    while ( $posts->have_posts() ) : $posts->the_post();
+	      print get_template_part( 'template-parts/content', 'excerpt-event' );
+	    endwhile;
+	  }
+	  wp_reset_postdata();
+
+		?>
+	</div>
+</section>
+
+
 		<section class="blog">
 			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h2>Nyheter</h2>
+					</div>
+				</div>
 				<?php print latest_posts(); ?>
-				<a href="/nyheter" class="all">Se fler nyheter</a>
+				<a href="/nyheter" class="all">Fler nyheter</a>
 			</div>
 		</section>
 	</main>

@@ -19,7 +19,7 @@ get_header();
 				</div>
 			</div>
 			<?php echo do_shortcode('[ajax_load_more
-				posts_per_page="3"
+				posts_per_page="5"
 				scroll="false"
 				post_type="post"
 				button_label="Fler nyheter"

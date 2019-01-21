@@ -105,11 +105,24 @@ add_filter( 'block_categories', function( $categories, $post ) {
  * Get the latest posts for the front page
  */
 function latest_posts() {
+	$today = date('Ymd');
   $args = array(
     'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'order'          => 'DESC',
-    'orderby'        => 'date'
+    'posts_per_page' => -1,
+    //'order'          => 'DESC',
+    //'orderby'        => 'date',
+		'meta_query' => array(
+			'relation'		=> 'or',
+			array(
+				'key' 	=> 'date',
+				'compare'   => 'NOT EXISTS'
+			),
+			array(
+				'key'		=> 'date',
+				'compare'	=> '<=',
+				'value'		=> $today,
+			)
+		),
   );
   $posts = new WP_Query( $args );
 
