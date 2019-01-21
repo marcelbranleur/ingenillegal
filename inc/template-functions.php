@@ -108,9 +108,7 @@ function latest_posts() {
 	$today = date('Ymd');
   $args = array(
     'post_type'      => 'post',
-    'posts_per_page' => -1,
-    //'order'          => 'DESC',
-    //'orderby'        => 'date',
+    'posts_per_page' => 3,
 		'meta_query' => array(
 			'relation'		=> 'or',
 			array(
