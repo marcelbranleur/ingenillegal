@@ -427,10 +427,14 @@ footer {
                 color: $footer-links-color;
                 font-family: $secondary-font;
                 font-weight: 400;
+                border-bottom: 1px solid transparent;
             }
 
+            a:focus,
             a:hover {
                 color: inherit;
+                border-bottom: 1px solid $footer-links-color;
+                text-decoration: none;
             }
         }
     }
@@ -443,7 +447,6 @@ footer {
       display: inline-block;
       font-size: 0.8rem;
       margin-top: 2rem;
-
     }
 }
 
