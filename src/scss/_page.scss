@@ -24,7 +24,8 @@ main {
         h1 {
             margin: 1rem auto 2rem auto;
             font-size: 1.75rem;
-            font-weight: 900;
+            font-weight: 700;
+            font-family: $primary-font;
 
             @include media-breakpoint-up(md) {
                 font-size: 2rem;
@@ -69,7 +70,7 @@ main {
         }
 
         // Added font styling to ul element as well as p
-        p, ul {
+        p, ul, dl, ol {
             margin: 1rem 0;
             font-size: 1.1rem;
             font-family: $primary-font;
@@ -85,6 +86,11 @@ main {
                 // margin: 1rem 3rem;
             }
         }
+        ul, dl, ol {
+          @include media-breakpoint-down(sm) {
+            padding-left: 1.1rem;
+          }
+        }
 
         h2 {
             margin: 3rem 0 1rem 0;
@@ -98,13 +104,45 @@ main {
             }
         }
 
-        // Add styling for h3 and h4
-        h3, h4 {
-          margin: 2rem 0 1rem 0;
-          font-size: 1.4rem;
+        // Add styling for h3
+        h3 {
+          margin: 2.5rem 0 -0.5rem 0;
           font-family: $primary-font;
           font-weight: 700;
+          font-size: 1.1rem;
+
+          @include media-breakpoint-up(md) {
+              font-size: 1.3rem;
+          }
+
+          @include media-breakpoint-up(lg) {
+              font-size: 1.4rem;
+          }
+
         }
+
+        // Add styling for h4
+        h4 {
+          margin: 2.5rem 0 -0.5rem 0;
+          font-family: $primary-font;
+          font-weight: 300;
+          font-style: italic;
+          font-size: 1.1rem;
+
+          @include media-breakpoint-up(md) {
+              font-size: 1.3rem;
+          }
+
+          @include media-breakpoint-up(lg) {
+              font-size: 1.4rem;
+          }
+        }
+
+        // Add styling for strong
+        b, strong {
+          font-weight: 700;
+        }
+        
     }
 
     a:link,

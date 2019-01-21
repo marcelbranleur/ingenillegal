@@ -30,18 +30,20 @@
     }
 
     div {
-        width: 50%;
+        // Changed to max-width, or they were to small on mobile
+        //width: 50%;
+        max-width: 180px;
         display: flex;
         flex-direction: column;
         margin-bottom: 1rem;
 
-        @include media-breakpoint-up(md) {
-            width: 25%;
-        }
+        //@include media-breakpoint-up(md) {
+            //width: 25%;
+        //}
 
-         @include media-breakpoint-up(lg) {
-             width: 60%;
-         }
+         //@include media-breakpoint-up(lg) {
+            //width: 60%;
+         //}
 
 
         a,
@@ -102,6 +104,13 @@
 }
 
 .group-content {
+
+    // Add a border between menu and content
+    border-top: 2px dotted #ccc;
+    @include media-breakpoint-up(lg) {
+      border-top: 0px;
+    }
+
     h1 {
         // margin: 0 3rem;
         font-size: 1.75rem;

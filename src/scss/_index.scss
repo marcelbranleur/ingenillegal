@@ -61,11 +61,13 @@ main .entry-footer a {
         font-size: 1rem;
         font-weight: 500;
         text-decoration: none;
+        padding: 0 0 0.5rem 0;
 
         // margin-right: 1rem;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(sm) {
             margin-right: 2rem;
+            padding: 0;
         }
 
 
@@ -96,7 +98,7 @@ main .entry-footer a {
             flex-direction: column;
             align-items: flex-end;
 
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(sm) {
                 display: flex;
                 flex-direction: row;
             }
@@ -210,8 +212,9 @@ main {
         h1 {
             margin: 0 3rem;
             font-size: 3.1rem;
-            font-weight: 900;
+            font-weight: 700;
             text-align: center;
+            font-family: $primary-font;
         }
 
         h2 {
@@ -383,6 +386,7 @@ footer {
     background-image: url('../img/IMaI_fot.jpg');
     // background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     text-align: center;
     color: $footer-links-color;
 
@@ -508,10 +512,17 @@ nav {
 
 
         .left {
-            margin-right: 2rem;
+            @include media-breakpoint-up(md) {
+              margin-right: 2rem;
+            }
 
             ul {
                 list-style: none;
+                padding-left: 1rem;
+
+                @include media-breakpoint-up(md) {
+                  padding-left: 2rem;
+                }
 
                 li {
                   text-align: left;
@@ -522,11 +533,11 @@ nav {
                     font-family: $primary-font;
                     font-size: 1.5rem;
                     text-align: left;
-                    margin: 0.5rem;
+                    margin: 0.5rem 0;
                     display: inline-block;
                     text-decoration: none;
                     color: #fff;
-                    text-transform: capitalize;
+                    //text-transform: capitalize;
                     // Use border-bottom instead of underline
                     border-bottom: 1px solid transparent;
 
@@ -552,9 +563,11 @@ nav {
 
             ul {
                 list-style: none;
+                padding-left: 1rem;
                 // Add a little margin on top to align the left and right menu
                 @include media-breakpoint-up(md) {
                   margin-top: 12px;
+                  padding-left: 2rem;
                 }
 
                 li {
@@ -566,11 +579,11 @@ nav {
                     font-family: $secondary-font;
                     font-size: 1.1rem;
                     text-align: left;
-                    margin: 0.3rem;
+                    margin: 0.3rem 0;
                     display: inline-block;
                     text-decoration: none;
                     color: #fff;
-                    text-transform: capitalize;
+                    //text-transform: capitalize;
                     // Use border-bottom instead of underline
                     border-bottom: 1px solid transparent;
 
