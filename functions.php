@@ -96,7 +96,7 @@ function ingenillegal_scripts() {
 	wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
 
 	// Add style from dist folder
-	wp_enqueue_style( 'ingenillegal-style', get_stylesheet_directory_uri() . '/dist/css/style.css');
+	wp_enqueue_style( 'ingenillegal-style', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), false, all);
 
 	// Load theme script with jquery as dependency
 	wp_enqueue_script( 'theme-script', get_template_directory_uri() . '/dist/js/script.js', array('jquery'), null, true);
