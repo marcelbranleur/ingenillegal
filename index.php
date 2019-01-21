@@ -18,8 +18,7 @@ get_header();
 					<h1>Nyheter</h1>
 				</div>
 			</div>
-			<?php echo do_shortcode('[
-				ajax_load_more
+			<?php echo do_shortcode('[ajax_load_more
 				posts_per_page="3"
 				scroll="false"
 				post_type="post"
