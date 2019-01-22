@@ -239,7 +239,7 @@ main {
 
             @include media-breakpoint-up(lg) {
                 width: 70%;
-                
+
                 @at-root main.group-context .blog .post {
                   width: 100%;
                 }
@@ -382,6 +382,10 @@ main {
             background-color: #F6F6F4;
             color: $primary;
         }
+    }
+    button.done {
+      display: none;
+      visibility: hidden;
     }
 }
 

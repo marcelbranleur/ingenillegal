@@ -111,15 +111,22 @@ get_header();
 								),
 						  )
 						 );
-						 $posts = new WP_Query( $args );
+						$posts = new WP_Query( $args );
 
-						 if ( $posts->have_posts() ) {
-						   while ( $posts->have_posts() ) : $posts->the_post();
-						   		get_template_part( 'template-parts/content', 'excerpt' );
-						   endwhile;
-						 }
-						 wp_reset_postdata();
-						 ?>
+						$post_ids = array();
+						while($posts->have_posts()) : $posts->the_post();
+							$post_ids[] = $post->ID;
+						endwhile; wp_reset_query();
+
+						echo do_shortcode('[ajax_load_more
+			 				posts_per_page="2"
+			 				scroll="false"
+							post__in="'. implode(',', $post_ids) .'"
+							orderby="post__in"
+			 				button_label="Fler nyheter"
+			 				button_loading_label="Laddar"
+			 			]');
+						?>
 
 					</div>
 				</section>
