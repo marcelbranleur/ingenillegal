@@ -113,19 +113,24 @@ get_header();
 						 );
 						$posts = new WP_Query( $args );
 
-						$post_ids = array();
-						while($posts->have_posts()) : $posts->the_post();
-							$post_ids[] = $post->ID;
-						endwhile; wp_reset_query();
+						if ( $posts->have_posts() ) {
 
-						echo do_shortcode('[ajax_load_more
-			 				posts_per_page="2"
-			 				scroll="false"
-							post__in="'. implode(',', $post_ids) .'"
-							orderby="post__in"
-			 				button_label="Fler nyheter"
-			 				button_loading_label="Laddar"
-			 			]');
+							$post_ids = array();
+
+						  while ( $posts->have_posts() ) : $posts->the_post();
+							 	$post_ids[] = $post->ID;
+						  endwhile;
+
+							echo do_shortcode('[ajax_load_more
+								posts_per_page="2"
+								scroll="false"
+								post__in="'. implode(',', $post_ids) .'"
+								orderby="post__in"
+								button_label="Fler nyheter"
+								button_loading_label="Laddar"
+							]');
+						}
+						wp_reset_postdata();
 						?>
 
 					</div>
