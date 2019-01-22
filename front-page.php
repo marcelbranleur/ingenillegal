@@ -63,14 +63,8 @@ get_header();
 
 	  if ( $posts->have_posts() ) { ?>
 
-			<section class="blog">
+			<section class="blog calendar">
 				<div class="container">
-
-					<div class="row">
-						<div class="col">
-							<h2>På gång</h2>
-						</div>
-					</div>
 
 	    		<?php
 						while ( $posts->have_posts() ) : $posts->the_post();
@@ -79,6 +73,9 @@ get_header();
 					?>
 
 				</div>
+
+				<span class="divider"></span>
+				
 			</section>
 
 		<?php }
