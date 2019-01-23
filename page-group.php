@@ -40,6 +40,10 @@ get_header();
 					endwhile;
 				?>
 
+			</div>
+		</div>
+	</div>
+
 				<!-- Local calendar -->
 				<?php
 				$today = date('Ymd');
@@ -76,7 +80,6 @@ get_header();
 							?>
 
 						</div>
-						<span class="divider"></span>
 					</section>
 
 				<?php }
@@ -136,8 +139,7 @@ get_header();
 					</div>
 				</section>
 
-			</div>
-		</div>
+
 	</div>
 </main>
 
