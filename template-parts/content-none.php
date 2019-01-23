@@ -18,9 +18,8 @@
 		<?php get_search_form(); ?>
 
 	<?php else : ?>
-		<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'ingenillegal' ); ?></p>
-		<?php get_search_form(); ?>
-
-	<?php endif; ?>
+		<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for.', 'ingenillegal' ); ?></p>
 		
+	<?php endif; ?>
+
 </section>

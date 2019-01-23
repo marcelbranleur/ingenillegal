@@ -73,8 +73,6 @@ get_header();
 					?>
 
 				</div>
-
-				<span class="divider"></span>
 				
 			</section>
 

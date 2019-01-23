@@ -111,45 +111,4 @@
       border-top: 0px;
     }
 
-    h1 {
-        // margin: 0 3rem;
-        font-size: 1.75rem;
-        font-weight: 900;
-        margin-bottom: 1rem;
-
-        @include media-breakpoint-up(md) {
-            font-size: 2rem;
-        }
-
-        @include media-breakpoint-up(lg) {
-            font-size: 3rem;
-            margin-bottom: 3.5rem;
-        }
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 1rem;
-
-        @include media-breakpoint-up(lg) {
-            margin-bottom: 2rem;
-        }
-    }
-
-/*    p {
-        font-size: 1.1rem;
-        font-family: $primary-font;
-        font-weight: 300;
-
-        @include media-breakpoint-up(md) {
-            font-size: 1.3rem;
-        }
-
-        @include media-breakpoint-up(lg) {
-            font-size: 1.4rem;
-            margin: 1rem 3rem;
-        }
-    }*/
-
 }

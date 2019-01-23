@@ -253,28 +253,24 @@ main {
                 // Changed the class .author to .groups (it's not the post author)
                 .date,
                 .groups {
-                    font-size: 0.6rem;
+                    font-size: 0.8rem;
                     font-weight: 400;
                     font-family: $secondary-font;
                     margin: 0.6rem;
                     text-transform: uppercase;
 
                     @include media-breakpoint-up(md) {
-                        font-size: 0.8rem;
-                    }
-
-                    @include media-breakpoint-up(lg) {
-                        font-size: 0.9rem;
+                        font-size: 1rem;
                     }
                 }
 
             }
 
             &-title {
-                margin-bottom: 1rem;
+                margin-bottom: 0.5rem;
 
                 a {
-                    font-size: 1.4rem;
+                    font-size: 1.6rem;
                     font-family: $primary-font;
                     font-weight: 700;
                     color: $font-color;
@@ -283,11 +279,11 @@ main {
                     border-bottom: 2px solid transparent;
 
                     @include media-breakpoint-up(md) {
-                        font-size: 1.6rem;
+                        font-size: 1.8rem;
                     }
 
                     @include media-breakpoint-up(lg) {
-                        font-size: 1.8rem;
+                        font-size: 2rem;
                     }
 
                     &:hover {
@@ -315,22 +311,52 @@ main {
             }
 
             &-excerpt {
-                font-size: 0.8rem;
+                font-size: 1.063rem;
                 font-family: $primary-font;
                 font-weight: 300;
 
                 @include media-breakpoint-up(md) {
-                    font-size: 0.9rem;
+                    font-size: 1.1rem;
                 }
 
                 @include media-breakpoint-up(lg) {
-                    font-size: 1.1rem;
+                    font-size: 1.25rem;
                 }
             }
         }
 
     }
 }
+
+// Calendar
+main .calendar {
+  background-color: $bg-color-dark;
+  margin: 0;
+  padding: 2rem 0 4rem;
+  @include media-breakpoint-up(md) {
+    padding: 2rem 0 6rem;
+  }
+  @include media-breakpoint-up(lg) {
+    margin-bottom: -3rem;
+  }
+  .event-date {
+    color: $primary;
+    font-weight: 700;
+    font-size: 1rem;
+    @include media-breakpoint-up(md) {
+      font-size: 1.25rem;
+    }
+  }
+  .event-details {
+    font-family: $secondary-font;
+    font-weight: 500;
+    font-size: 1rem;
+    @include media-breakpoint-up(md) {
+      font-size: 1.25rem;
+    }
+  }
+}
+
 
 // Added a link to all news on front page
 .all {
@@ -341,14 +367,10 @@ main {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-    font-size: 0.6rem;
-
-    @include media-breakpoint-up(md) {
-        font-size: 0.8rem;
-    }
+    font-size: 0.8rem;
 
     @include media-breakpoint-up(lg) {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }
 

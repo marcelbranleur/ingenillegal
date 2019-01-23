@@ -81,7 +81,7 @@ main {
             }
 
             @include media-breakpoint-up(lg) {
-                font-size: 1.4rem;
+                font-size: 1.375em;
                 // Remove the left/right margins
                 // margin: 1rem 3rem;
             }
@@ -158,38 +158,26 @@ main {
     // Styling for date and groups
     .date,
     .groups {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
       font-weight: 400;
       font-family: $secondary-font;
-      padding: 0 0 0.4rem 0;
       text-transform: uppercase;
 
       @include media-breakpoint-up(md) {
-        font-size: 0.8rem;
-      }
-
-      @include media-breakpoint-up(lg) {
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
     }
 
     // Styling for event
-    .post-event {
-      font-size: 0.8rem;
+    p.post-event {
       font-family: $secondary-font;
+      color: $primary;
       font-weight: 500;
-      margin-bottom: 1rem;
-
-      @include media-breakpoint-up(md) {
-          font-size: 0.9rem;
-      }
-
-      @include media-breakpoint-up(lg) {
-          font-size: 1.1rem;
-      }
     }
 
-    .boxes {
+
+    // We removed the boxes
+/*    .boxes {
         margin: 2rem auto;
         width: 70%;
 
@@ -235,68 +223,7 @@ main {
                 background-color: $primary-dark;
             }
         }
-    }
-}
-
-// Calendar
-main .calendar {
-  @include media-breakpoint-up(lg) {
-    margin-bottom: -4rem;
-  }
-  .container {
-    padding-bottom: 3rem;
-    > div:last-child .post {
-      border-bottom: 0;
-    }
-  }
-  .post {
-    display: flex;
-    align-items: flex-start;
-    max-width: 600px;
-    .event-date {
-      width: 65px;
-      margin-right: 1rem;
-      font-family: $secondary-font;
-      background-color: $primary-dark;
-      color: white;
-      padding: 0.2rem 0.5rem;
-      @include media-breakpoint-up(sm) {
-        width: 90px;
-        margin-right: 2rem;
-      }
-      span:first-child {
-        font-size: 2rem;
-        display: block;
-        line-height: 0.8;
-        @include media-breakpoint-up(sm) {
-          font-size: 3rem;
-          line-height: 1;
-        }
-      }
-      span:last-child {
-        font-size:0.7rem;
-        @include media-breakpoint-up(sm) {
-          font-size: 1rem;
-        }
-      }
-    }
-    .post-title {
-      margin-bottom: 0.2rem;
-      text-align: left;
-      line-height: 1.2;
-    }
-    .post-excerpt {
-      text-align: left;
-      font-size: 1.1rem;
-    }
-  }
-  .divider {
-    width: 80px;
-    height: 2px;
-    background-color: $font-color;
-    display: block;
-    margin: 0 auto;
-  }
+    }*/
 }
 
 // Add support for rtl languages

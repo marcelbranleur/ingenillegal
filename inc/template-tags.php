@@ -27,7 +27,7 @@ if( !function_exists('ingenillegal_event_info')) :
 		$field_city = get_field('city');
 
 		if($field_date) {
-			print '<div class="post-event">';
+			print '<p class="post-event">';
 			print '<span class="event-date">'. $field_date .'</span>';
 			if($field_place) {
 				print ', <span class="event-place">'. $field_place .'</span>';
@@ -35,7 +35,7 @@ if( !function_exists('ingenillegal_event_info')) :
 			if($field_city) {
 				print ', <span class="event-city">'. $field_city .'</span>';
 			}
-			print '</div>';
+			print '</p>';
 		}
 
 	}

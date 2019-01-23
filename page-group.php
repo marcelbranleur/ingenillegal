@@ -122,7 +122,7 @@ get_header();
 						  endwhile;
 
 							echo do_shortcode('[ajax_load_more
-								posts_per_page="2"
+								posts_per_page="4"
 								scroll="false"
 								post__in="'. implode(',', $post_ids) .'"
 								orderby="post__in"

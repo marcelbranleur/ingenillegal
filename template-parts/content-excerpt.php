@@ -23,8 +23,6 @@
 
 			<?php the_title( '<div class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></div>' ); ?>
 
-			<?php // ingenillegal_event_info(); ?>
-
 			<div class="post-excerpt">
 				<?php the_excerpt(); ?>
 			</div>
