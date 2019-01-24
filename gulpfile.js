@@ -116,7 +116,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function () {
-    sequence('clean', [ 'html', 'js', 'css', 'img', 'fonts',  'files'])
+    sequence('clean', ['sass'], [ 'html', 'js', 'css', 'img', 'fonts',  'files'])
 });
 
 gulp.task('default', [ 'serve' ]);
