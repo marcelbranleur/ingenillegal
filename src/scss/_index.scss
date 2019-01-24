@@ -541,6 +541,10 @@ nav {
                 font-size: 2rem;
             }
         }
+
+        a:focus, a:hover {
+          border: 1px solid white;
+        }
     }
 
     .nav-menu {
