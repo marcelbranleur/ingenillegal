@@ -53,6 +53,7 @@ jQuery(document).ready(function($) {
           if ($("this:focus") && (e.which == 9)) {
             e.preventDefault();
             $close.focus();
+            console.log('')
           }
         });
 
