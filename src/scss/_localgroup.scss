@@ -32,7 +32,7 @@
     div {
         // Changed to max-width, or they were to small on mobile
         //width: 50%;
-        max-width: 180px;
+        max-width: 270px;
         display: flex;
         flex-direction: column;
         margin-bottom: 1rem;
@@ -52,7 +52,7 @@
             display: inline-block;
             background-color: $primary;
             margin: 0.3rem 0;
-            padding: 0.3rem 1rem;
+            padding: 0.7rem 1rem;
             color: #fff;
             font-size: 1.1rem;
             font-family: $secondary-font;
@@ -101,6 +101,12 @@
             }
         }
     }
+}
+
+hr.kalendar {
+    width: 100%;
+    background-color: #EEEEE8;
+    border: 4px solid #EEEEE8;
 }
 
 .group-content {

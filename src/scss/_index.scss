@@ -23,6 +23,8 @@ main .entry-footer a {
   padding: 1rem 2rem;
   display: inline-block;
   text-decoration: none !important;
+  font-size: 1.125rem;
+
   &:hover, &:active, &:focus {
     background-color: $primary-darker;
   }
@@ -140,7 +142,7 @@ header {
     .header-wrapper {
 
         margin: 1rem auto 6rem auto;
-        width: 75%;
+        // width: 75%; THIS
 
         @include media-breakpoint-up(md) {
             margin: 1rem auto 8rem auto;
@@ -162,7 +164,7 @@ header {
 
             @include media-breakpoint-up(md) {
                 font-size: 2rem;
-                width: 65%;
+                width: 50%;
             }
 
             @include media-breakpoint-up(lg) {
@@ -175,7 +177,7 @@ header {
 
         p {
             font-family: $secondary-font;
-            font-size: 1rem;
+            font-size: 1.125rem;
 
             width: 100%;
             margin: 0 auto;
@@ -183,7 +185,7 @@ header {
 
             @include media-breakpoint-up(md) {
                 font-size: 1.3rem;
-                width: 100%;
+                width: 80%;
                 // The text should be centrally aligned on all widths
                 // text-align: left;
             }
@@ -537,14 +539,14 @@ nav {
             font-size: 1.5rem;
             cursor: pointer;
 
-            @include media-breakpoint-up(lg) {
-                font-size: 2rem;
-            }
+            // @include media-breakpoint-up(lg) {
+            //     font-size: 2rem;
+            // }
         }
 
-        a:focus, a:hover {
-          border: 1px solid white;
-        }
+        // a:focus, a:hover {
+        //   border: 1px solid white;
+        // }
     }
 
     .nav-menu {
@@ -564,7 +566,7 @@ nav {
 
         .left {
             @include media-breakpoint-up(md) {
-              margin-right: 2rem;
+              margin-right: 3.15rem;
             }
 
             ul {
@@ -575,15 +577,15 @@ nav {
                   padding-left: 2rem;
                 }
 
-                li {
-                  text-align: left;
-                }
+                // li {
+                //   text-align: left;
+                // }
 
                 li a {
                     font-weight: 700;
                     font-family: $primary-font;
                     font-size: 1.5rem;
-                    text-align: left;
+                    // text-align: left;
                     margin: 0.5rem 0;
                     display: inline-block;
                     text-decoration: none;
@@ -620,15 +622,15 @@ nav {
                   padding-left: 2rem;
                 }
 
-                li {
-                  text-align: left;
-                }
+                // li {
+                //   text-align: left;
+                // }
 
                 li a {
                     font-weight: 400;
                     font-family: $secondary-font;
                     font-size: 1.1rem;
-                    text-align: left;
+                    // text-align: left;
                     margin: 0.3rem 0;
                     display: inline-block;
                     text-decoration: none;
@@ -642,12 +644,12 @@ nav {
                         border-bottom: 1px solid #fff;
                     }
 
-                    @include media-breakpoint-up(xs) {
-                        font-size: 0.8rem;
-                    }
-                    @include media-breakpoint-up(md) {
-                        font-size: 1.1rem;
-                    }
+                    // @include media-breakpoint-up(xs) {
+                    //     font-size: 0.8rem;
+                    // }
+                    // @include media-breakpoint-up(md) {
+                    //     font-size: 1.1rem;
+                    // }
                 }
             }
 
@@ -747,7 +749,7 @@ nav {
         li a {
             font-weight: 400;
             font-family: $secondary-font;
-            font-size: 0.9rem;
+            font-size: 1.125rem;
             text-align: center;
             margin: 0.5rem;
             display: block;
